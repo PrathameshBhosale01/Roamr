@@ -1,5 +1,3 @@
-<img width="1890" height="913" alt="Screenshot 2026-02-10 154514" src="https://github.com/user-attachments/assets/72277ca5-d618-47fe-b1e6-b63ae4a4e8d6" /><div align="center">
-
 # 🏡 Roamr - Travel Listing Web Application
 
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
