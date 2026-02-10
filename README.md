@@ -21,7 +21,6 @@
 - [🗄️ Database Design](#️-database-design)
 - [📦 Packages Used](#-packages-used)
 - [📁 Folder Structure](#-folder-structure)
-- [🎓 What I Learned](#-what-i-learned)
 - [🚀 Installation](#-installation)
 - [🔮 Future Improvements](#-future-improvements)
 - [📄 License](#-license)
@@ -521,21 +520,6 @@ For deploying to platforms like **Render**, **Heroku**, or **Railway**:
 
 ---
 
-<div align="center">
-
-### 🎯 Roadmap Priority
-
-| Priority | Features | Timeline |
-|----------|----------|----------|
-| **High** 🔴 | Search/Filter, Booking System, User Profiles | Q1 2026 |
-| **Medium** 🟡 | REST API, Email Notifications, Reviews Enhancement | Q2 2026 |
-| **Low** 🟢 | Mobile App, Analytics, Advanced Security | Q3-Q4 2026 |
-
-</div>
-
-
-
----
 
 ## 📄 License
 
