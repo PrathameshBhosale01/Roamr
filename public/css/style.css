@@ -396,3 +396,26 @@ button.btn.btn-search.search-btn {
   border-radius: 35px !important; /* instead of 30px */
 }
 
+/* navbar stlying for mobile view */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto; /* Allow navbar to grow when menu is open */
+    padding: 0.5rem 1rem;
+  }
+
+  .search-input {
+    min-width: 150px !important; /* Shrink input for mobile */
+    width: 100% !important;
+    margin-bottom: 10px; /* Space between input and nav links */
+  }
+
+  .search-form-mobile {
+    margin: 1rem 0; /* Add spacing inside the collapsed menu */
+    width: 100%;
+  }
+
+  .search-btn {
+    height: 40px !important;
+    padding: 0 1rem !important;
+  }
+}
