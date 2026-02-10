@@ -804,69 +804,67 @@ app.use(methodOverride("_method")); // Converts POST to DELETE
 
 📁 Folder Structure
 
-📁 roamr/
+roamr/
 │
-├── controllers/                 # Business logic layer
-│   ├── listings.js              # CRUD operations for listings
-│   ├── reviews.js               # Create/delete reviews
-│   └── user.js                  # Signup, login, logout
+├── controllers/              # Business logic layer
+│   ├── listings.js          # CRUD operations for listings
+│   ├── reviews.js           # Create/delete reviews
+│   └── user.js              # Signup, login, logout
 │
-├── models/                      # Database schemas
-│   ├── listing.js               # Listing schema with owner & reviews
-│   ├── review.js                # Review schema with author
-│   └── user.js                  # User schema with Passport plugin
+├── models/                   # Database schemas
+│   ├── listing.js           # Listing schema with owner & reviews
+│   ├── review.js            # Review schema with author
+│   └── user.js              # User schema with passport plugin
 │
-├── routes/                      # URL routing
-│   ├── listing.js               # Routes for /listings
-│   ├── review.js                # Routes for /listings/:id/reviews
-│   └── user.js                  # Routes for /signup, /login, /logout
+├── routes/                   # URL routing
+│   ├── listing.js           # Routes for /listings
+│   ├── review.js            # Routes for /listings/:id/reviews
+│   └── user.js              # Routes for /signup, /login, /logout
 │
-├── views/                       # EJS templates
+├── views/                    # EJS templates
 │   ├── layouts/
-│   │   └── boilerplate.ejs      # Main layout (navbar, footer, scripts)
+│   │   └── boilerplate.ejs  # Main layout (navbar, footer, scripts)
 │   │
 │   ├── listings/
-│   │   ├── index.ejs            # All listings grid
-│   │   ├── show.ejs             # Single listing with map & reviews
-│   │   ├── new.ejs              # Create listing form
-│   │   ├── edit.ejs             # Edit listing form
-│   │   └── error.ejs            # Error page
+│   │   ├── index.ejs        # All listings grid
+│   │   ├── show.ejs         # Single listing with map & reviews
+│   │   ├── new.ejs          # Create listing form
+│   │   ├── edit.ejs         # Edit listing form
+│   │   └── error.ejs        # Error page
 │   │
 │   ├── users/
-│   │   ├── signup.ejs           # Signup form
-│   │   └── login.ejs            # Login form
+│   │   ├── signup.ejs       # Signup form
+│   │   └── login.ejs        # Login form
 │   │
 │   └── includes/
-│       ├── navbar.ejs           # Navigation bar
-│       ├── footer.ejs           # Footer with links
-│       └── flash.ejs            # Success/error messages
+│       ├── navbar.ejs       # Navigation bar
+│       ├── footer.ejs       # Footer with links
+│       └── flash.ejs        # Success/error messages
 │
-├── public/                      # Static assets
+├── public/                   # Static assets
 │   ├── css/
-│   │   ├── style.css            # Main stylesheet
-│   │   └── rating.css           # Star rating styles
+│   │   ├── style.css        # Main stylesheet
+│   │   └── rating.css       # Star rating styles
 │   │
 │   └── js/
-│       └── script.js            # Form validation script
+│       └── script.js        # Form validation script
 │
-├── utils/                       # Helper functions
-│   ├── ExpressError.js          # Custom error class
-│   ├── wrapAsync.js             # Async error wrapper
-│   └── reviewValidation.js      # Joi validation middleware
+├── utils/                    # Helper functions
+│   ├── ExpressError.js      # Custom error class
+│   ├── wrapAsync.js         # Async error wrapper
+│   └── reviewValidation.js  # Joi validation middleware
 │
-├── init/                        # Database initialization
-│   ├── data.js                  # Sample listings data
-│   └── index.js                 # Script to seed database
+├── init/                     # Database initialization
+│   ├── data.js              # Sample listings data
+│   └── index.js             # Script to seed database
 │
-├── middleware.js                # Auth & authorization middleware
-├── cloudConfig.js               # Cloudinary & Multer configuration
-├── app.js                       # Main application file
-├── .env                         # Environment variables (not in repo)
-├── .gitignore                   # Ignored files
-├── package.json                 # Dependencies
-└── README.md                    # Project documentation
-
-
+├── middleware.js             # Custom middleware (auth, authorization)
+├── cloudConfig.js            # Cloudinary & Multer configuration
+├── app.js                    # Main application file
+├── .env                      # Environment variables (not in repo)
+├── .gitignore                # Ignored files
+├── package.json              # Dependencies
+└── README.md                 # Project documentation
 ---
 
 ## 🎓 What I Learned
