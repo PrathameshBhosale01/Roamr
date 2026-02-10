@@ -1,0 +1,32 @@
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="auth-card">
+    <div class="auth-header">
+        <h2>Welcome Back</h2>
+        <p class="mb-0 opacity-75">Please login to your account</p>
+    </div>
+    <div class="auth-body">
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+            <div class="auth-form-group">
+                <label for="username" class="form-label fw-semibold">Username</label>
+                <input name="username" id="username" type="text" class="auth-input" placeholder="Enter username" required>
+                <span class="auth-icon"><i class="fa-solid fa-user"></i></span>
+            </div>
+            <div class="auth-form-group">
+                <label for="password" class="form-label fw-semibold">Password</label>
+                <input name="password" id="password" type="password" class="auth-input" placeholder="Enter password" required>
+                <span class="auth-icon"><i class="fa-solid fa-lock"></i></span>
+                <span class="password-toggle" onclick="togglePassword()"><i class="fa-solid fa-eye"></i></span>
+            </div>
+            <button type="submit" class="btn-auth">Login</button>
+
+            <div class="text-center mt-4 pt-3 border-top">
+                <p class="text-muted small">
+                    Don't have an account? <a href="/signup" class="fw-bold text-decoration-none" style="color: #2b7cff;">Sign up</a>
+                </p>
+            </div>
+        </form>
+
+    </div>
+</div>

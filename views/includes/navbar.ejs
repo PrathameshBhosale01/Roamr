@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/listings">
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    style="display:block"
+  >
+    <defs>
+      <linearGradient id="roamrGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2b7cff"/>
+        <stop offset="100%" stop-color="#2fd6b3"/>
+      </linearGradient>
+    </defs>
+
+    <circle
+      cx="11"
+      cy="11"
+      r="7"
+      fill="none"
+      stroke="url(#roamrGradient)"
+      stroke-width="2.5"
+    />
+
+    <path
+      d="M21 21L16.65 16.65"
+      fill="none"
+      stroke="url(#roamrGradient)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M11 7L14 11L11 15"
+      fill="none"
+      stroke="url(#roamrGradient)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+
+  <span class="fw-semibold roamr-text">Roamr</span>
+</a>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+   
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+            <div class="navbar-nav ms-auto search-button">
+<form class="d-flex align-items-center" role="search" action="/listings/search" method="GET">
+  <input
+    class="form-control search-input"
+    type="search"
+    placeholder="Search destinations"
+    aria-label="Search"
+    name="q"
+  />
+  <button class="btn btn-search search-btn" type="submit">
+    <i class="fa-solid fa-magnifying-glass"></i> Search
+  </button>
+</form>
+
+      </div>
+
+
+      
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" href="/listings/new">Become a host</a>
+              <% if(!currUser)  { %>
+        <a class="nav-link active"  href="/signup"><b>Signup</b></a>
+        <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %>
+          <% if(currUser)  { %>
+        <a class="nav-link" href="/logout"><b>Logout</b></a>
+           <% } %>
+     
+      </div>
+    </div>
+  </div>
+</nav>
+

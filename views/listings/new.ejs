@@ -1,0 +1,119 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+<div class="col-8 offset-2">
+
+<body>
+    <h3>Create a New Listing</h3>
+    <br>
+<form method="post" action="/listings"
+     novalidate 
+    class="needs-validation" 
+    enctype="multipart/form-data">
+    <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input 
+        name="listing[title]" 
+        placeholder="Add a catchy title" 
+        type="text" 
+        class="form-control"  required>
+       <div class="invalid-feedback">
+  Please provide a valid title.
+</div>
+
+    </div>
+    
+    <div class="mb-3">
+    <label for="description" class="form-label" >Description</label>
+     <textarea 
+     name="listing[description]" 
+     placeholder="Enter description"
+      class="form-control" required></textarea></textarea>
+      <div class="invalid-feedback">
+  Description cannot be empty.
+</div>
+
+    </div>
+    
+
+       <div class="mb-3">
+   <label for="image" class="form-label">Upload Listing Image</label>
+    <input name="listing[image]"  type="file" class="form-control " required  >
+   
+   <div class="valid-feedback">
+  Image URL looks good.
+</div>
+    </div>
+
+    <div class="row">
+<div class="mb-3 col-md-8">
+<label for="country" class="form-label">Country</label>
+ <input name="listing[country]" placeholder="India" type="text" class="form-control"  required>
+ <div class="invalid-feedback">
+  Please select a country.
+</div>
+</div>
+
+<div class="mb-3 col-md-4"> 
+<label for="price" class="form-label">Price</label>
+<input name="listing[price]" placeholder="1200" type="number" class="form-control" min="1" step="1" required>
+<div class="invalid-feedback">
+  Price must be greater than zero.   
+</div> 
+ </div>
+</div>
+
+
+<div class="mb-3">
+<label for="location" class="form-label">Location</label>
+<input name="listing[location]" placeholder="Jaipur,Rajasthan" type="text" class="form-control" required>
+<div class="invalid-feedback">
+  Please enter a valid location.
+</div>
+
+</div>
+<div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select name="listing[category]" class="form-select" required>
+    <option value="" disabled selected>Select Category</option>
+
+    <optgroup label="Popular">
+      <option value="Trending">Trending</option>
+      <option value="New">New</option>
+      <option value="Top Rated">Top Rated</option>
+    </optgroup>
+
+    <optgroup label="Property Type">
+      <option value="Rooms">Rooms</option>
+      <option value="Apartments">Apartments</option>
+      <option value="Villas">Villas</option>
+      <option value="Cabins">Cabins</option>
+    </optgroup>
+
+    <optgroup label="Location">
+      <option value="Beach">Beach</option>
+      <option value="Mountains">Mountains</option>
+      <option value="City">City</option>
+      <option value="Countryside">Countryside</option>
+    </optgroup>
+
+    <optgroup label="Experience">
+      <option value="Luxury">Luxury</option>
+      <option value="Budget">Budget</option>
+      <option value="Pet Friendly">Pet Friendly</option>
+      <option value="Family Friendly">Family Friendly</option>
+    </optgroup>
+  </select>
+
+  <div class="invalid-feedback">Please select a category.</div>
+</div>
+
+
+    <button class="btn btn-dark add-btn">Create Listing </button>
+   <br><br>
+</form>
+    
+
+</body>
+</div>
+
+</div>

@@ -1,0 +1,398 @@
+
+body{
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400 !important;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container{
+  flex: 1;
+}
+/* LOGO */
+.roamr-text {
+  background: linear-gradient(90deg, #2b7cff, #2fd6b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* #Navbar */
+.navbar{
+  height: 5rem;
+  background-color: #ffffff;;
+  
+}
+
+/* Footer */
+
+.nav-link{
+   color: #222222 !important;
+}
+
+.f-info{
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+.f-info-links a{
+ text-decoration: none;
+ color: #222222;
+}
+
+.f-info-links, .f-info-socials, .f-info-brand{
+width: 100%;
+display: flex;
+align-items: center;
+  justify-content: center;
+} 
+
+
+.f-info-socials i{
+  font-size: 1.2rem;
+    margin-right: 1rem;
+}
+.f-info-links a:hover{
+  text-decoration: underline;
+}
+
+/* Cards */
+.card{
+  border:none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top{
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body{
+  padding: 0% !important;
+}
+
+.card-text p{
+  font-weight: 400 !important;
+}
+
+/* ----- */
+
+/* Card Effect */
+
+.card {
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-title {
+  transition: color 0.3s ease;
+}
+
+.card:hover .card-title {
+  color: #2563eb;
+}
+
+
+.listing-link{
+  text-decoration: none;
+}
+/* Create new list - add btn/edit btn */
+.add-btn{
+ background: linear-gradient(90deg, #2b7cff, #2fd6b3) ;
+  color: #ffffff ;
+  padding: 10px 18px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+/* Show page */
+.show-img{
+   height: 30vh;
+}
+
+/* Listing details */
+.btns{
+  display: flex;
+}
+
+.dlt-btn{
+  padding: 10px 18px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+.show-card{
+padding-left: 0 !important;
+padding-right: 0  !important;
+}
+
+/* Review styling */
+
+.star-rating {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+
+/* --- Authentication Pages (Login & Signup) --- */
+
+.auth-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 450px;
+    width: 100%;
+    margin: 2rem auto;
+    animation: authSlideUp 0.5s ease-out;
+}
+
+@keyframes authSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-header {
+    background: linear-gradient(90deg, #2b7cff, #2fd6b3); /* Roamr Brand Colors */
+    padding: 40px 30px;
+    text-align: center;
+    color: white;
+}
+
+.auth-header h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.auth-body { 
+    padding: 40px 30px; 
+}
+
+.auth-form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: #2b7cff;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(43, 124, 255, 0.1);
+}
+
+.auth-icon {
+    position: absolute;
+    left: 15px;
+    top: 38px;
+    color: #999;
+    font-size: 18px;
+}
+
+.btn-auth {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #2b7cff, #2fd6b3);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(43, 124, 255, 0.2);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 38px;
+    cursor: pointer;
+    color: #999;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+/* --- Filters Styling --- */
+
+#filters {
+    display: flex;
+    flex-wrap: nowrap; /* Change from wrap to nowrap for a single scrollable row */
+    overflow-x: auto;
+    align-items: center;
+}
+
+.filter {
+  text-align: center;
+  margin-right: 2rem;
+  margin-top: 1.5rem;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Fix for anchor tags inside filters */
+.filter a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.filter p {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+/* --- Tax Toggle Styling --- */
+
+.tax-toggle {
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Lightened border for better look */
+  border-radius: 1rem;
+  height: 3.25rem; /* Adjusted height */
+  padding: 1rem;
+  display: flex;
+  align-items: center; /* Vertically centers the switch and label */
+  white-space: nowrap; /* Prevents text from wrapping into the border */
+  width: fit-content; /* Ensures border only wraps the content */
+}
+
+/* Ensure the Bootstrap switch and label are aligned */
+.tax-toggle .form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adds consistent space between switch and text */
+  margin: 0; /* Removes default Bootstrap margins */
+}
+
+.tax-toggle .form-check-label {
+  cursor: pointer;
+  font-size: 0.9rem; /* Adjust font size if needed */
+}
+
+
+/* Header search bar styling */
+/* Container to hold input + button together */
+.search-container {
+  display: inline-flex;
+  align-items: stretch;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 30px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+}
+
+/* Input styling */
+.search-input {
+  border: none;
+  border-radius: 35px !important;
+  height: 48px ;
+  padding: 0 1.5rem !important;
+  font-size: 16px;
+  background-color: transparent;
+  outline: none;
+  min-width: 280px ; 
+  flex: 1 ;
+  margin-right: 0.5rem;
+}
+
+.search-input::placeholder {
+  color: #6b7280;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+/* Button styling */
+button.btn.btn-search.search-btn {
+  background: linear-gradient(90deg, #2b7cff, #2fd6b3);
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  height: 48px;
+  padding: 0 2rem;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+/* Hover effect */
+.search-btn:hover {
+  opacity: 0.95;
+  filter: brightness(1.05);
+}
+
+.search-btn:active {
+  opacity: 0.9;
+}
+
+/* Icon styling */
+.search-btn i {
+  color: #fff;
+  font-size: 16px;
+}
+.search-btn {
+  border-radius: 35px !important; /* instead of 30px */
+}
+
