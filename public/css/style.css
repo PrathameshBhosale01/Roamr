@@ -419,3 +419,6 @@ button.btn.btn-search.search-btn {
     padding: 0 1rem !important;
   }
 }
+.tax-info {
+  display: none; /* Hide tax info by default */
+}
