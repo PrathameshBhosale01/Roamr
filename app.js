@@ -35,6 +35,7 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
+const port = process.env.PORT || 8080;
 // Start application only after DB connection
 main()
   .then(() => {
@@ -104,6 +105,10 @@ main()
       next();
     });
 
+    app.get("/", (req, res) => {
+          res.redirect("/listings");
+    });
+    
     // Route handlers
     app.use("/listings", listingRouter);
     app.use("/listings/:id/reviews", reviewsRouter);
@@ -122,8 +127,8 @@ main()
     });
 
     // Start server
-    app.listen(8080, () => {
-      console.log("Server is listening on port 8080");
+  app.listen(port, () => {
+      console.log(`Server is listening on port ${port}`);
     });
   })
   .catch((err) => {
