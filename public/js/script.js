@@ -12,6 +12,14 @@
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
+        }else {
+          // Form is valid and will proceed with submission.
+          // Find the submit button and disable it to prevent multiple clicks.
+          const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...`;
+          }
         }
 
         form.classList.add('was-validated')

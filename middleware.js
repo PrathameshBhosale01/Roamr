@@ -3,6 +3,21 @@ const Review= require("./models/review");
 const ExpressError=require("./utils/ExpressError.js");
 const {listingSchema,reviewSchema}=require("./schema.js");
 
+const rateLimit = require("express-rate-limit");
+
+const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10,                  // 10 requests per IP
+    standardHeaders: true,
+    legacyHeaders: false,
+   handler: (req, res, next, options) => {
+    req.flash("error", "Too many login attempts. Please wait a few minutes and try again.");
+    res.redirect("/login");
+   },
+});
+
+module.exports = authLimiter;
+
 module.exports.isLoggedIn=(req,res,next)=>{
     if(!req.isAuthenticated()){
       req.session.redirectUrl=req.originalUrl;
@@ -54,7 +69,8 @@ module.exports.validateReview=(req,res,next)=>{
 module.exports.isReviewAuthor= async(req,res,next)=>{
   let {id,reviewId}=req.params;
   let review= await Review.findById(reviewId);
-  if(!review.author._id.equals(res.locals.currUser._id)){
+
+  if(!review.author.equals(res.locals.currUser._id)){
           req.flash("error","You are not the author of listing");
         return  res.redirect(`/listings/${id}`);
     }
