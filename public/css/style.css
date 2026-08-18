@@ -387,7 +387,36 @@ button.btn.btn-search.search-btn {
 .search-btn:active {
   opacity: 0.9;
 }
+@media (max-width: 768px) {
+  .btns {
+    flex-wrap: wrap !important; /* Allows buttons to stack if they don't fit */
+    gap: 10px !important;      /* Adds space between stacked buttons */
+  }
 
+  .add-btn {
+    width: 20% !important;    /* Makes buttons full-width for easier tapping on mobile */
+    
+  }
+}
+
+
+#map {
+  height: 400px ;
+  width: 100% ;
+  border-radius: 10px ;
+}
+
+/* Add this media query */
+@media (max-width: 768px) {
+  #map {
+    height: 250px !important; /* Smaller height for mobile view */
+  }
+}
+@media (max-width: 768px) {
+    .leaflet-popup {
+        display: none ;
+    }
+}
 /* Icon styling */
 .search-btn i {
   color: #fff;
@@ -397,9 +426,7 @@ button.btn.btn-search.search-btn {
   border-radius: 35px !important; /* instead of 30px */
 }
 
-
-/* Add this at the end of your style.css */
-
+/* navbar stlying for mobile view */
 @media (max-width: 768px) {
   .navbar {
     height: auto; /* Allow navbar to grow when menu is open */
