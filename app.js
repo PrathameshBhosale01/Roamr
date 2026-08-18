@@ -5,19 +5,7 @@ if (process.env.NODE_ENV != "production") {
 
 // Core packages
 const helmet = require("helmet");
-const rateLimit = require("express-rate-limit");
-
 const express = require("express");
-
-
-const authLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 10,                  // maximum 10 requests
-    standardHeaders: true,
-    legacyHeaders: false,
-    message: "Too many authentication attempts. Please try again later."
-});
-
 
 
 const scriptSrcUrls = [
@@ -207,9 +195,7 @@ app.use((req, res, next) => {
   next();
 });
 
-    app.get("/", (req, res) => {
-          res.redirect("/listings");
-        });
+
 
     app.get("/", (req, res) => {
           res.redirect("/listings");
