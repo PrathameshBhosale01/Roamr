@@ -4,8 +4,95 @@ if (process.env.NODE_ENV != "production") {
 }
 
 // Core packages
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
+
 const express = require("express");
+
+
+const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10,                  // maximum 10 requests
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: "Too many authentication attempts. Please try again later."
+});
+
+
+
+const scriptSrcUrls = [
+  "https://cdn.jsdelivr.net",
+  "https://cdnjs.cloudflare.com",
+  "https://unpkg.com",  
+];
+
+const styleSrcUrls = [
+  "https://cdn.jsdelivr.net",
+  "https://cdnjs.cloudflare.com",
+  "https://unpkg.com",
+  "https://fonts.googleapis.com",
+];
+
+const connectSrcUrls = [
+  "https://api.geoapify.com",
+];
+
+const imgSrcUrls = [
+  "https://res.cloudinary.com",
+  "https://maps.geoapify.com",
+  "https://unpkg.com", // leaflet's default marker/shadow icons
+];
+
+const fontSrcUrls = [
+  "https://fonts.gstatic.com",
+  "https://cdnjs.cloudflare.com",
+];
+
 const app = express();
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          ...scriptSrcUrls,
+        ],
+
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          ...styleSrcUrls,
+        ],
+
+        imgSrc: [
+          "'self'",
+          "blob:",
+          "data:",
+          ...imgSrcUrls,
+        ],
+
+        connectSrc: [
+          "'self'",
+          ...connectSrcUrls,
+        ],
+
+        fontSrc: [
+          "'self'",
+          "data:",
+          ...fontSrcUrls,
+        ],
+
+        objectSrc: ["'none'"],
+      },
+    },
+  })
+);
+
+
 const mongoose = require("mongoose");
 const path = require("path");
 
@@ -34,7 +121,6 @@ const dbUrl = process.env.ATLASDB_URL;
 async function main() {
   await mongoose.connect(dbUrl);
 }
-
 const port = process.env.PORT || 8080;
 // Start application only after DB connection
 main()
@@ -48,6 +134,7 @@ main()
 
     // Middleware for parsing form data
     app.use(express.urlencoded({ extended: true }));
+
 
     // Enable HTTP method override (?_method=PUT / DELETE)
     app.use(methodOverride("_method"));
@@ -98,12 +185,31 @@ main()
     passport.deserializeUser(User.deserializeUser());
 
     // Middleware to make flash messages & current user available in all views
-    app.use((req, res, next) => {
-      res.locals.success = req.flash("success");
-      res.locals.error = req.flash("error");
-      res.locals.currUser = req.user;
-      next();
-    });
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.currUser = req.user || null;
+
+  
+
+  // Wrap render to merge res.locals with view data
+  const originalRender = res.render;
+  res.render = function(view, data, callback) {
+    // Handle different argument patterns
+    if (typeof data === 'function') {
+      callback = data;
+      data = {};
+    }
+    const mergedData = Object.assign({}, res.locals, data || {});
+    return originalRender.call(this, view, mergedData, callback);
+  };
+
+  next();
+});
+
+    app.get("/", (req, res) => {
+          res.redirect("/listings");
+        });
 
     app.get("/", (req, res) => {
           res.redirect("/listings");
